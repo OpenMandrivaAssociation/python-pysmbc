@@ -17,7 +17,8 @@ License: BSD
 %py_requires -d
    
 %description
-Python bindings for the libsmbclient API from Samba
+Python bindings for the libsmbclient API, known as pysmbc. It was written
+for use with system-config-printer, but can be put to other uses as well.
 
 %prep
 %setup -q -n %{oname}-%version
