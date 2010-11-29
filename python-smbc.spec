@@ -1,8 +1,8 @@
 %define module smbc
 %define name python-%{module}
 %define oname pysmbc
-%define version 1.0.6
-%define release %mkrel 3
+%define version 1.0.10
+%define release %mkrel 1
     
 Name:    %{name}
 Summary: Python bindings for the libsmbclient API from Samba
