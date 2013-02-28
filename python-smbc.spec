@@ -1,12 +1,13 @@
 %define module smbc
-   
+%define oname py%{module}
+
 Name:		python-%{module}
 Summary:	Python bindings for the libsmbclient API from Samba
-Version:	1.0.10
-Release:	4
+Version:	1.0.13
+Release:	1
 Group:		Development/Python
 URL:		http://cyberelk.net/tim/data/pysmbc/
-Source0:	%oname-%version.tar.bz2 
+Source0:	http://cyberelk.net/tim/data/pysmbc/%{oname}-%{version}.tar.bz2
 BuildRequires:	libsmbclient-devel
 License:		BSD
 %py_requires -d
@@ -16,14 +17,14 @@ Python bindings for the libsmbclient API, known as pysmbc. It was written
 for use with system-config-printer, but can be put to other uses as well.
 
 %prep
-%setup -q -n %{oname}-%version
- 
+%setup -q -n %{oname}-%{version}
+
 %build
 %__python setup.py build
-  
+
 %install
 %__python setup.py install --root=%{buildroot}
-  
+
 %files
 %python_sitearch/*.egg-info
 %python_sitearch/smbc.so
