@@ -1,19 +1,14 @@
 %define module smbc
-%define name python-%{module}
-%define oname pysmbc
-%define version 1.0.10
-%define release %mkrel 3
-    
-Name:    %{name}
-Summary: Python bindings for the libsmbclient API from Samba
-Version: %{version}
-Release: %{release}
-Group:   Development/Python
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-URL: http://cyberelk.net/tim/data/pysmbc/
-Source0:       %oname-%version.tar.bz2 
-BuildRequires: libsmbclient-devel
-License: BSD
+   
+Name:		python-%{module}
+Summary:	Python bindings for the libsmbclient API from Samba
+Version:	1.0.10
+Release:	4
+Group:		Development/Python
+URL:		http://cyberelk.net/tim/data/pysmbc/
+Source0:	%oname-%version.tar.bz2 
+BuildRequires:	libsmbclient-devel
+License:		BSD
 %py_requires -d
    
 %description
@@ -27,15 +22,9 @@ for use with system-config-printer, but can be put to other uses as well.
 %__python setup.py build
   
 %install
-%__rm -rf %{buildroot}
-  
 %__python setup.py install --root=%{buildroot}
   
-%clean
-%__rm -rf %{buildroot}
-   
 %files
-%defattr(-,root,root)
 %python_sitearch/*.egg-info
 %python_sitearch/smbc.so
 
