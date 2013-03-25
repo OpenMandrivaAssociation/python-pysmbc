@@ -1,15 +1,16 @@
 %define module smbc
 %define oname py%{module}
 
-Name:		python-%{module}
 Summary:	Python bindings for the libsmbclient API from Samba
+Name:		python-%{module}
 Version:	1.0.13
-Release:	1
+Release:	2
 Group:		Development/Python
-URL:		http://cyberelk.net/tim/data/pysmbc/
+License:	BSD
+Url:		http://cyberelk.net/tim/data/pysmbc/
 Source0:	http://cyberelk.net/tim/data/pysmbc/%{oname}-%{version}.tar.bz2
-BuildRequires:	libsmbclient-devel
-License:		BSD
+Patch0:		pysmbc-1.0.13_samba-4.0_libsmbclient_h.patch
+BuildRequires:	pkgconfig(smbclient)
 %py_requires -d
    
 %description
@@ -17,7 +18,8 @@ Python bindings for the libsmbclient API, known as pysmbc. It was written
 for use with system-config-printer, but can be put to other uses as well.
 
 %prep
-%setup -q -n %{oname}-%{version}
+%setup -qn %{oname}-%{version}
+%apply_patches
 
 %build
 %__python setup.py build
@@ -28,30 +30,4 @@ for use with system-config-printer, but can be put to other uses as well.
 %files
 %python_sitearch/*.egg-info
 %python_sitearch/smbc.so
-
-
-%changelog
-* Thu May 05 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.10-2mdv2011.0
-+ Revision: 668035
-- mass rebuild
-
-* Mon Nov 29 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.0.10-1mdv2011.0
-+ Revision: 603075
-- update to new version 1.0.10
-
-* Sun Oct 31 2010 Andrey Borzenkov <arvidjaar@mandriva.org> 1.0.6-3mdv2011.0
-+ Revision: 590767
-- rebuild for new python 2.7
-
-* Sun Jun 06 2010 Colin Guthrie <cguthrie@mandriva.org> 1.0.6-2mdv2010.1
-+ Revision: 547157
-- Bump release to ensure version is > 2010.0 update version
-
-  + Nicolas Lécureuil <nlecureuil@mandriva.com>
-    - Use description for the package in 2010.0
-
-* Fri Feb 19 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 1.0.6-1mdv2010.1
-+ Revision: 508398
-- import python-smbc
-
 
