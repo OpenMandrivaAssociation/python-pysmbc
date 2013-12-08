@@ -11,8 +11,8 @@ Url:		http://cyberelk.net/tim/data/pysmbc/
 Source0:	http://cyberelk.net/tim/data/pysmbc/%{oname}-%{version}.tar.bz2
 Patch0:		pysmbc-1.0.13_samba-4.0_libsmbclient_h.patch
 BuildRequires:	pkgconfig(smbclient)
-%py_requires -d
-   
+BuildRequires:  python-devel
+
 %description
 Python bindings for the libsmbclient API, known as pysmbc. It was written
 for use with system-config-printer, but can be put to other uses as well.
