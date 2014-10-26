@@ -22,12 +22,12 @@ for use with system-config-printer, but can be put to other uses as well.
 %apply_patches
 
 %build
-%__python setup.py build
+%__python2 setup.py build build_ext
 
 %install
-%__python setup.py install --root=%{buildroot}
+%__python2 setup.py install --root=%{buildroot}
 
 %files
-%python_sitearch/*.egg-info
-%python_sitearch/smbc.so
+%py2_platsitedir/*.egg-info
+%py2_platsitedir/smbc.so
 
