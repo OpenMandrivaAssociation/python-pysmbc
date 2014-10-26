@@ -11,7 +11,7 @@ Url:		http://cyberelk.net/tim/data/pysmbc/
 Source0:	http://cyberelk.net/tim/data/pysmbc/%{oname}-%{version}.tar.bz2
 Patch0:		pysmbc-1.0.13_samba-4.0_libsmbclient_h.patch
 BuildRequires:	pkgconfig(smbclient)
-BuildRequires:  python-devel
+BuildRequires:  pkgconfig(python)
 
 %description
 Python bindings for the libsmbclient API, known as pysmbc. It was written
