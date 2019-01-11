@@ -1,3 +1,4 @@
----
-sources:
+removed_sources:
   pysmbc-1.0.13.tar.bz2: bf37346af4a6b543f7f91c46d0d1d0cc6020db32
+sources:
+  pysmbc-1.0.15.8.tar.bz2: 6bad8492e18739d48662a72ca28fd6e1be833b86
