@@ -1,0 +1,65 @@
+diff -up pysmbc-1.0.13/context.c.omv~ pysmbc-1.0.13/context.c
+--- pysmbc-1.0.13/context.c.omv~	2019-05-06 22:37:07.298733327 +0200
++++ pysmbc-1.0.13/context.c	2019-05-06 22:38:58.850173483 +0200
+@@ -638,6 +638,7 @@ Context_getTimeout (Context *self, void
+ static int
+ Context_setTimeout (Context *self, PyObject *value, void *closure)
+ {
++#if PY_MAJOR_VERSION < 3
+   if (!PyInt_Check (value))
+     {
+       PyErr_SetString (PyExc_TypeError, "must be long");
+@@ -645,6 +646,15 @@ Context_setTimeout (Context *self, PyObj
+     }
+ 
+   smbc_setTimeout (self->context, PyInt_AsLong (value));
++#else
++  if (!PyLong_Check (value))
++    {
++      PyErr_SetString (PyExc_TypeError, "must be long");
++      return -1;
++    }
++
++  smbc_setTimeout (self->context, PyLong_AsLong (value));
++#endif
+   return 0;
+ }
+ 
+diff -up pysmbc-1.0.13/smbcmodule.c.omv~ pysmbc-1.0.13/smbcmodule.c
+--- pysmbc-1.0.13/smbcmodule.c.omv~	2019-05-06 22:35:52.850160348 +0200
++++ pysmbc-1.0.13/smbcmodule.c	2019-05-06 22:36:54.507806528 +0200
+@@ -67,22 +67,22 @@ initsmbc (void)
+ 
+   // Context type
+   if (PyType_Ready (&smbc_ContextType) < 0)
+-    return;
++    goto out;
+   PyModule_AddObject (m, "Context", (PyObject *) &smbc_ContextType);
+ 
+   // Dir type
+   if (PyType_Ready (&smbc_DirType) < 0)
+-    return;
++    goto out;
+   PyModule_AddObject (m, "Dir", (PyObject *) &smbc_DirType);
+ 
+   // File type
+   if (PyType_Ready (&smbc_FileType) < 0)
+-    return;
++    goto out;
+   PyModule_AddObject (m, "File", (PyObject *) &smbc_FileType);
+ 
+   // Dirent type
+   if (PyType_Ready (&smbc_DirentType) < 0)
+-    return;
++    goto out;
+   PyModule_AddObject (m, "Dirent", (PyObject *) &smbc_DirentType);
+ 
+ #define INT_CONSTANT(prefix, name)			\
+@@ -127,6 +127,7 @@ initsmbc (void)
+   Py_INCREF(NoSpaceError);
+   PyModule_AddObject(m, "NoSpaceError", NoSpaceError);
+ 
++out:
+ #if PY_MAJOR_VERSION >= 3
+   return m;
+ #endif
