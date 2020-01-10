@@ -20,7 +20,7 @@ for use with system-config-printer, but can be put to other uses as well.
 
 %prep
 %setup -qn %{module}-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 %__python setup.py build build_ext
