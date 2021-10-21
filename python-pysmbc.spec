@@ -1,3 +1,6 @@
+# Work around incomplete debug packages
+%global _empty_manifest_terminate_build 0
+
 %define module pysmbc
 
 Summary:	Python bindings for the libsmbclient API from Samba
