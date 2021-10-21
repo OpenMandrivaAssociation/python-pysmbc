@@ -1,10 +1,9 @@
-%global debug_package %{nil}
 %define module pysmbc
 
 Summary:	Python bindings for the libsmbclient API from Samba
 Name:		python-%{module}
 Version:	1.0.13
-Release:	18
+Release:	19
 Group:		Development/Python
 License:	BSD
 Url:		http://cyberelk.net/tim/data/pysmbc/
@@ -24,10 +23,10 @@ for use with system-config-printer, but can be put to other uses as well.
 %autopatch -p1
 
 %build
-%{__python} setup.py build build_ext
+python setup.py build build_ext
 
 %install
-%{__python} setup.py install --root=%{buildroot}
+python setup.py install --root=%{buildroot}
 
 %files
 %{py3_platsitedir}/*.egg-info
