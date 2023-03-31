@@ -6,7 +6,7 @@
 Summary:	Python bindings for the libsmbclient API from Samba
 Name:		python-%{module}
 Version:	1.0.13
-Release:	19
+Release:	20
 Group:		Development/Python
 License:	BSD
 Url:		http://cyberelk.net/tim/data/pysmbc/
