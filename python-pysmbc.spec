@@ -9,7 +9,7 @@ Version:	1.0.13
 Release:	20
 Group:		Development/Python
 License:	BSD
-Url:		http://cyberelk.net/tim/data/pysmbc/
+Url:		https://cyberelk.net/tim/data/pysmbc/
 Source0:	http://cyberelk.net/tim/data/pysmbc/%{module}-%{version}.tar.bz2
 Patch0:		pysmbc-1.0.13_samba-4.0_libsmbclient_h.patch
 Patch1:		pysmbc-python3-compilefixes.patch
