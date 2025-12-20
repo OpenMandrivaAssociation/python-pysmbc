@@ -17,6 +17,7 @@ Source0:  https://files.pythonhosted.org/packages/source/p/pysmbc/pysmbc-%{versi
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:  python%{pyver}dist(setuptools)
+BuildRequires:  python%{pyver}dist(pip)
 %rename python-smbc
 
 %description
@@ -34,5 +35,5 @@ for use with system-config-printer, but can be put to other uses as well.
 %py_install
 
 %files
-%{py3_platsitedir}/*.egg-info
-%{py3_platsitedir}/smbc.*.so
+#{py3_platsitedir}/*.egg-info
+#{py3_platsitedir}/smbc.*.so
