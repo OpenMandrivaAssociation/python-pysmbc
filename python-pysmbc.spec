@@ -16,6 +16,7 @@ Source0:  https://files.pythonhosted.org/packages/source/p/pysmbc/pysmbc-%{versi
 #Patch1:		pysmbc-python3-compilefixes.patch
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(python3)
+BuildRequires:  python%{pyver}dist(setuptools)
 %rename python-smbc
 
 %description
