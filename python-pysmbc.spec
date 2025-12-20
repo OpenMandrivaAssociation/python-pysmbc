@@ -5,12 +5,13 @@
 
 Summary:	Python bindings for the libsmbclient API from Samba
 Name:		python-%{module}
-Version:	1.0.13
-Release:	21
+Version:	1.0.25.1
+Release:	1
 Group:		Development/Python
 License:	BSD
 Url:		https://cyberelk.net/tim/data/pysmbc/
-Source0:	http://cyberelk.net/tim/data/pysmbc/%{module}-%{version}.tar.bz2
+#Source0:	http://cyberelk.net/tim/data/pysmbc/%{module}-%{version}.tar.bz2
+Source0:  https://files.pythonhosted.org/packages/source/p/pysmbc/pysmbc-%{version}.tar.gz
 Patch0:		pysmbc-1.0.13_samba-4.0_libsmbclient_h.patch
 Patch1:		pysmbc-python3-compilefixes.patch
 BuildRequires:	pkgconfig(smbclient)
@@ -26,10 +27,10 @@ for use with system-config-printer, but can be put to other uses as well.
 %autopatch -p1
 
 %build
-python setup.py build build_ext
+%py_build
 
 %install
-python setup.py install --root=%{buildroot}
+%py_install
 
 %files
 %{py3_platsitedir}/*.egg-info
