@@ -12,8 +12,8 @@ License:	BSD
 Url:		https://cyberelk.net/tim/data/pysmbc/
 #Source0:	http://cyberelk.net/tim/data/pysmbc/%{module}-%{version}.tar.bz2
 Source0:  https://files.pythonhosted.org/packages/source/p/pysmbc/pysmbc-%{version}.tar.gz
-Patch0:		pysmbc-1.0.13_samba-4.0_libsmbclient_h.patch
-Patch1:		pysmbc-python3-compilefixes.patch
+#Patch0:		pysmbc-1.0.13_samba-4.0_libsmbclient_h.patch
+#Patch1:		pysmbc-python3-compilefixes.patch
 BuildRequires:	pkgconfig(smbclient)
 BuildRequires:	pkgconfig(python3)
 %rename python-smbc
