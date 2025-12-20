@@ -35,5 +35,6 @@ for use with system-config-printer, but can be put to other uses as well.
 %py_install
 
 %files
-#{py3_platsitedir}/*.egg-info
-#{py3_platsitedir}/smbc.*.so
+%{python_sitearch}/_smbc.cpython-*-*-linux-gnu.so
+%{python_sitearch}/pysmbc-%{version}-py*.egg-info
+%{python_sitearch}/smbc/
